@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
 app.listen(PORT, function() {
     console.log(`Server is listening on port ${PORT}`);
 });
