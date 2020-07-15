@@ -32,7 +32,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use('/api',require('./routes/api'));
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
